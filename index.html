@@ -15,68 +15,129 @@
 body { background: #111; color: #998456; font-family: 'Courier New', monospace; display: flex; flex-direction: column; align-items: center; height: 100vh; }
 h1 { font-size: 2.5em; margin-bottom: 20px; }
 h1 a { color: inherit; text-decoration: none; }
-#main-video { width: 90%; max-width: 800px; height: auto; border-radius: 8px; margin-bottom: 20px; }
+#container { display: flex; width: 90%; max-width: 1200px; margin-bottom: 20px; }
+#main-video { width: 70%; max-width: 800px; height: auto; border-radius: 8px; }
+#iframe-container { width: 30%; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; } /* Light grey background */
+#iframe-chat { width: 100%; height: 100%; border: none; }
+#control-buttons { margin: 20px; }
+button { padding: 10px; border: none; background: #998456; color: #fff; border-radius: 5px; cursor: pointer; transition: background .2s; }
+button:hover { background: #a89b6b; }
 #video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; width: 90%; max-width: 1200px; overflow-y: auto; max-height: calc(100vh - 300px); }
 .video-item { background: #222; border: 1px solid #444; border-radius: 8px; cursor: pointer; position: relative; height: 112px; width: 100%; overflow: hidden; transition: transform .2s; }
 .video-item:hover { transform: scale(1.05); }
 .video-item.selected { outline: 2px solid #998456; }
 .video-title { position: absolute; bottom: 10px; left: 10px; background: rgba(0, 0, 0, .6); color: #fff; padding: 5px 10px; border-radius: 8px; font-size: .9em; }
 video { width: 100%; height: 100%; object-fit: cover; }
-#control-buttons { margin: 20px; }
-button { padding: 10px; border: none; background: #998456; color: #fff; border-radius: 5px; cursor: pointer; transition: background .2s; }
-button:hover { background: #a89b6b; }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </head>
 <body>
 <h1>ft.<a href="https://killcha.in">killcha.in</a></h1>
-<video id="main-video" controls></video>
+<div id="container">
+  <video id="main-video" controls></video>
+  <div id="iframe-container">
+    <iframe src='https://iframe.chat/embed/index.html?chat=47785667' id='iframe-chat'></iframe>
+  </div>
+</div>
 <div id="control-buttons">
-<button id="play-all">Play All</button>
-<button id="pause-all">Pause All</button>
+  <button id="play-all">Play All</button>
+  <button id="pause-all">Pause All</button>
 </div>
 <div id="video-grid">
-<div class="video-item selected" data-src="https://ft.3045x.com/9b249j7qlqu0fypg/index.m3u8"><video muted></video><div class="video-title">Director Mode</div></div>
-<div class="video-item" data-src="https://ft.3045x.com/d678xcnkn2slngkx/index.m3u8"><video muted></video><div class="video-title">Den</div></div>
-<div class="video-item" data-src="https://ft.3045x.com/8e1arf44e86qa7ru/index.m3u8"><video muted></video><div class="video-title">Den PTZ</div></div>
-<div class="video-item" data-src="https://ft.3045x.com/9f41r40060icglir/index.m3u8"><video muted></video><div class="video-title">Lounge</div></div>
-<div class="video-item" data-src="https://ft.3045x.com/7d3e7e9s5qm5l1uf/index.m3u8"><video muted></video><div class="video-title">Locker Room</div></div>
-<div class="video-item" data-src="https://ft.3045x.com/b4e4iknxyd1u4g0c/index.m3u8"><video muted></video><div class="video-title">Deck</div></div>
-<div class="video-item" data-src="https://ft.3045x.com/8ac015orral0pm4c/index.m3u8"><video muted></video><div class="video-title">Yard</div></div>
-<div class="video-item" data-src="https://ft.3045x.com/b51399w8tr5qa0v1/index.m3u8"><video muted></video><div class="video-title">Yard PTZ</div></div>
-<div class="video-item" data-src="https://ft.3045x.com/580elsslerqmt28u/index.m3u8"><video muted></video><div class="video-title">Catwalk</div></div>
-<div class="video-item" data-src="https://ft.3045x.com/84485q0ve58ckwm2/index.m3u8"><video muted></video><div class="video-title">Mail Room</div></div>
-<div class="video-item" data-src="https://ft.3045x.com/8c8btla37r6nux8f/index.m3u8"><video muted></video><div class="video-title">Kitchen</div></div>
-<div class="video-item" data-src="https://ft.3045x.com/d578z2acldqyww5x/index.m3u8"><video muted></video><div class="video-title">Island</div></div>
-<div class="video-item" data-src="https://ft.3045x.com/afacw5eipuyfsfny/index.m3u8"><video muted></video><div class="video-title">Dining Room</div></div>
-<div class="video-item" data-src="https://ft.3045x.com/3760543f053u6c5m/index.m3u8"><video muted></video><div class="video-title">Hallway</div></div>
-<div class="video-item" data-src="https://ft.3045x.com/b65269ekvyvfkous/index.m3u8"><video muted></video><div class="video-title">Bedroom 1</div></div>
-<div class="video-item" data-src="https://ft.3045x.com/36708jd80gr91018/index.m3u8"><video muted></video><div class="video-title">Bedroom 2</div></div>
-<div class="video-item" data-src="https://ft.3045x.com/44daqjc6r1dfxd2e/index.m3u8"><video muted></video><div class="video-title">Bedroom 3</div></div>
-<div class="video-item" data-src="https://ft.3045x.com/68f8q4hl8cys37n2/index.m3u8"><video muted></video><div class="video-title">Vanity</div></div>
-<div class="video-item" data-src="https://ft.3045x.com/4fb8to1674q6ht0m/index.m3u8"><video muted></video><div class="video-title">Flat</div></div>
-<div class="video-item" data-src="https://ft.3045x.com/21aflvcz5puavd2e/index.m3u8"><video muted></video><div class="video-title">Confessional</div></div>
+  <div class="video-item selected" data-src="https://ft.3045x.com/9b249j7qlqu0fypg/index.m3u8"><video muted></video><div class="video-title">Director Mode</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/d678xcnkn2slngkx/index.m3u8"><video muted></video><div class="video-title">Den</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/8e1arf44e86qa7ru/index.m3u8"><video muted></video><div class="video-title">Den PTZ</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/9f41r40060icglir/index.m3u8"><video muted></video><div class="video-title">Lounge</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/7d3e7e9s5qm5l1uf/index.m3u8"><video muted></video><div class="video-title">Locker Room</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/b4e4iknxyd1u4g0c/index.m3u8"><video muted></video><div class="video-title">Deck</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/8ac015orral0pm4c/index.m3u8"><video muted></video><div class="video-title">Yard</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/b51399w8tr5qa0v1/index.m3u8"><video muted></video><div class="video-title">Yard PTZ</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/580elsslerqmt28u/index.m3u8"><video muted></video><div class="video-title">Catwalk</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/84485q0ve58ckwm2/index.m3u8"><video muted></video><div class="video-title">Mail Room</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/8c8btla37r6nux8f/index.m3u8"><video muted></video><div class="video-title">Kitchen</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/d578z2acldqyww5x/index.m3u8"><video muted></video><div class="video-title">Island</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/afacw5eipuyfsfny/index.m3u8"><video muted></video><div class="video-title">Dining Room</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/3760543f053u6c5m/index.m3u8"><video muted></video><div class="video-title">Hallway</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/b65269ekvyvfkous/index.m3u8"><video muted></video><div class="video-title">Bedroom 1</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/36708jd80gr91018/index.m3u8"><video muted></video><div class="video-title">Bedroom 2</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/44daqjc6r1dfxd2e/index.m3u8"><video muted></video><div class="video-title">Bedroom 3</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/68f8q4hl8cys37n2/index.m3u8"><video muted></video><div class="video-title">Vanity</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/4fb8to1674q6ht0m/index.m3u8"><video muted></video><div class="video-title">Flat</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/21aflvcz5puavd2e/index.m3u8"><video muted></video><div class="video-title">Confessional</div></div>
 </div>
 <script>
-const mainVideo = document.getElementById('main-video'), hls = new Hls(), videoItems = document.querySelectorAll('.video-item');
-const loadVideo = (videoSrc) => { if (Hls.isSupported()) { hls.loadSource(videoSrc); hls.attachMedia(mainVideo); mainVideo.play(); } };
-videoItems.forEach((item) => { const videoSrc = item.getAttribute('data-src'), cardVideo = item.querySelector('video'); if (Hls.isSupported()) { const hlsCard = new Hls(); hlsCard.loadSource(videoSrc); hlsCard.attachMedia(cardVideo); cardVideo.play(); } item.onclick = () => { videoItems.forEach((v) => v.classList.remove('selected')); item.classList.add('selected'); loadVideo(videoSrc); }; });
-document.getElementById('play-all').onclick = () => videoItems.forEach(item => item.querySelector('video').play());
-document.getElementById('pause-all').onclick = () => videoItems.forEach(item => item.querySelector('video').pause());
-loadVideo(document.querySelector('.video-item.selected').getAttribute('data-src'));
+const mainVideo = document.getElementById('main-video');
+const videoItems = document.querySelectorAll('.video-item');
+let currentVideoIndex = 0;
 
+const loadVideo = (videoSrc) => {
+  if (Hls.isSupported()) {
+    const hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(mainVideo);
+    hls.on(Hls.Events.MANIFEST_PARSED, () => {
+      mainVideo.play();
+    });
+  } else if (mainVideo.canPlayType('application/vnd.apple.mpegurl')) {
+    mainVideo.src = videoSrc;
+    mainVideo.addEventListener('loadedmetadata', () => {
+      mainVideo.play();
+    });
+  }
+};
+
+videoItems.forEach((item, index) => {
+  const videoSrc = item.getAttribute('data-src');
+  const cardVideo = item.querySelector('video');
+  const hls = new Hls();
+
+  hls.loadSource(videoSrc);
+  hls.attachMedia(cardVideo);
+  cardVideo.muted = true; // Ensure each video is muted to play automatically
+  hls.on(Hls.Events.MANIFEST_PARSED, () => {
+    cardVideo.play();
+  });
+
+  item.addEventListener('click', () => {
+    loadVideo(videoSrc);
+    videoItems.forEach((el) => el.classList.remove('selected'));
+    item.classList.add('selected');
+    currentVideoIndex = index; // Update the current index
+  });
+});
+
+// Play all videos
+document.getElementById('play-all').addEventListener('click', () => {
+  videoItems.forEach((item) => {
+    const videoSrc = item.getAttribute('data-src');
+    loadVideo(videoSrc);
+  });
+});
+
+// Pause all videos
+document.getElementById('pause-all').addEventListener('click', () => {
+  videoItems.forEach((item) => {
+    const cardVideo = item.querySelector('video');
+    cardVideo.pause();
+  });
+});
+
+// Handle arrow key navigation
 document.addEventListener('keydown', (event) => {
-  const selectedItem = document.querySelector('.video-item.selected');
   if (event.key === 'ArrowRight') {
-    const nextItem = selectedItem.nextElementSibling || videoItems[0];
-    selectedItem.classList.remove('selected');
+    currentVideoIndex = (currentVideoIndex + 1) % videoItems.length; // Move to the next video
+    const nextItem = videoItems[currentVideoIndex];
+    const nextVideoSrc = nextItem.getAttribute('data-src');
+    loadVideo(nextVideoSrc);
+    videoItems.forEach((el) => el.classList.remove('selected'));
     nextItem.classList.add('selected');
-    loadVideo(nextItem.getAttribute('data-src'));
   } else if (event.key === 'ArrowLeft') {
-    const prevItem = selectedItem.previousElementSibling || videoItems[videoItems.length - 1];
-    selectedItem.classList.remove('selected');
+    currentVideoIndex = (currentVideoIndex - 1 + videoItems.length) % videoItems.length; // Move to the previous video
+    const prevItem = videoItems[currentVideoIndex];
+    const prevVideoSrc = prevItem.getAttribute('data-src');
+    loadVideo(prevVideoSrc);
+    videoItems.forEach((el) => el.classList.remove('selected'));
     prevItem.classList.add('selected');
-    loadVideo(prevItem.getAttribute('data-src'));
   }
 });
 </script>
