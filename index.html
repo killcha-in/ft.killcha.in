@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head>
+<html lang="en"><head>
 <meta property="og:url" content="https://ft.killcha.in">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ft.killcha.in">
@@ -17,10 +17,10 @@ body {
   display: flex; 
   flex-direction: column; 
   align-items: center; 
-  overflow-y: auto; /* Enable vertical scrolling */
-  height: 110vh; 
+  overflow-y: auto; 
+  height: 115vh; 
 }
-h1 { font-size: 2.5em; margin-bottom: 20px; padding: 20px; }
+h1 { font-size: 2.0em; margin-bottom: 10px; padding: 10px; }
 h1 a { color: inherit; text-decoration: none; }
 #container { 
   display: flex; 
@@ -29,7 +29,7 @@ h1 a { color: inherit; text-decoration: none; }
   margin-bottom: 20px; 
 }
 #main-video { 
-  width: 70%; 
+  width: 90%; 
   max-width: 800px; 
   height: auto; 
   border-radius: 8px; 
@@ -119,7 +119,7 @@ video {
 }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-<head>
+
   <script src="https://chattable.neocities.org/scripts/main.min.js"></script>
   <script>
     chattable.initialize({
@@ -131,9 +131,9 @@ video {
 <body>
 <h1>ft.<a href="https://killcha.in">killcha.in</a></h1>
 <div id="container">
-  <video id="main-video" controls=""></video>
+  <video id="main-video" controls="" src="blob:https://ft.killcha.in/89c9e069-b3c2-4af6-8df5-4370e0eb43fb" equalizer-state="attached"></video>
   <div id="iframe-container">
-    <iframe src="https://iframe.chat/embed/index.html?chat=47785667" id="chattable"></iframe>
+    <iframe src="https://iframe.chat/embed/index.html?chat=47785667" id="chattable" data-ruffle-polyfilled=""></iframe>
   </div>
 </div>
 <div id="control-buttons">
@@ -141,30 +141,30 @@ video {
   <button id="pause-all">Pause All</button>
 </div>
 <div id="video-grid">
-  <div class="video-item selected" data-src="https://ft.3045x.com/9b249j7qlqu0fypg/index.m3u8"><video muted=""></video><div class="video-title">Director Mode</div></div>
-  <div class="video-item" data-src="https://ft.3045x.com/d678xcnkn2slngkx/index.m3u8"><video muted=""></video><div class="video-title">Den</div></div>
-  <div class="video-item" data-src="https://ft.3045x.com/8e1arf44e86qa7ru/index.m3u8"><video muted=""></video><div class="video-title">Den PTZ</div></div>
-  <div class="video-item" data-src="https://ft.3045x.com/9f41r40060icglir/index.m3u8"><video muted=""></video><div class="video-title">Lounge</div></div>
-  <div class="video-item" data-src="https://ft.3045x.com/7d3e7e9s5qm5l1uf/index.m3u8"><video muted=""></video><div class="video-title">Locker Room</div></div>
-  <div class="video-item" data-src="https://ft.3045x.com/b4e4iknxyd1u4g0c/index.m3u8"><video muted=""></video><div class="video-title">Deck</div></div>
-  <div class="video-item" data-src="https://ft.3045x.com/8ac015orral0pm4c/index.m3u8"><video muted=""></video><div class="video-title">Yard</div></div>
-  <div class="video-item" data-src="https://ft.3045x.com/b51399w8tr5qa0v1/index.m3u8"><video muted=""></video><div class="video-title">Yard PTZ</div></div>
-  <div class="video-item" data-src="https://ft.3045x.com/580elsslerqmt28u/index.m3u8"><video muted=""></video><div class="video-title">Catwalk</div></div>
-  <div class="video-item" data-src="https://ft.3045x.com/84485q0ve58ckwm2/index.m3u8"><video muted=""></video><div class="video-title">Mail Room</div></div>
-  <div class="video-item" data-src="https://ft.3045x.com/8c8btla37r6nux8f/index.m3u8"><video muted=""></video><div class="video-title">Kitchen</div></div>
-  <div class="video-item" data-src="https://ft.3045x.com/d578z2acldqyww5x/index.m3u8"><video muted=""></video><div class="video-title">Island</div></div>
-  <div class="video-item" data-src="https://ft.3045x.com/afacw5eipuyfsfny/index.m3u8"><video muted=""></video><div class="video-title">Dining Room</div></div>
-  <div class="video-item" data-src="https://ft.3045x.com/3760543f053u6c5m/index.m3u8"><video muted=""></video><div class="video-title">Hallway</div></div>
-  <div class="video-item" data-src="https://ft.3045x.com/b65269ekvyvfkous/index.m3u8"><video muted=""></video><div class="video-title">Bedroom 1</div></div>
-  <div class="video-item" data-src="https://ft.3045x.com/36708jd80gr91018/index.m3u8"><video muted=""></video><div class="video-title">Bedroom 2</div></div>
-  <div class="video-item" data-src="https://ft.3045x.com/44daqjc6r1dfxd2e/index.m3u8"><video muted=""></video><div class="video-title">Bedroom 3</div></div>
-  <div class="video-item" data-src="https://ft.3045x.com/68f8q4hl8cys37n2/index.m3u8"><video muted=""></video><div class="video-title">Vanity</div></div>
-  <div class="video-item" data-src="https://ft.3045x.com/0c0bun9tebd65k3j/index.m3u8"><video muted=""></video><div class="video-title">Penthouse</div></div>
-  <div class="video-item" data-src="https://ft.3045x.com/9d5ckl8snb01ba6i/index.m3u8"><video muted=""></video><div class="video-title">Loft</div></div>
-  <div class="video-item" data-src="https://ft.3045x.com/122bkgvyrj1f7pk4/index.m3u8"><video muted=""></video><div class="video-title">Jacuzzi</div></div>
-  <div class="video-item" data-src="https://ft.3045x.com/f77b5hz939s8z89b/index.m3u8"><video muted=""></video><div class="video-title">Bar</div></div>
-  <div class="video-item" data-src="https://ft.3045x.com/4fb8to1674q6ht0m/index.m3u8"><video muted=""></video><div class="video-title">Flat</div></div>
-  <div class="video-item" data-src="https://ft.3045x.com/21aflvcz5puavd2e/index.m3u8"><video muted=""></video><div class="video-title">Confessional</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/9b249j7qlqu0fypg/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/d168fece-a2d7-47c8-b323-d5151e655c3d"></video><div class="video-title">Director Mode</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/d678xcnkn2slngkx/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/e6a2d095-27d4-4c72-aeb1-5473e043ec4f" equalizer-state="attached"></video><div class="video-title">Den</div></div>
+  <div class="video-item selected" data-src="https://ft.3045x.com/8e1arf44e86qa7ru/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/033df7ac-d593-4df8-b236-c0490b7a7c24" equalizer-state="attached"></video><div class="video-title">Den PTZ</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/9f41r40060icglir/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/600b5d55-5322-4278-bd7e-80def97640bb" equalizer-state="attached"></video><div class="video-title">Lounge</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/7d3e7e9s5qm5l1uf/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/a0d05f8e-f245-4b37-8698-8259349b916e" equalizer-state="attached"></video><div class="video-title">Locker Room</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/b4e4iknxyd1u4g0c/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/a718cc09-5c0f-473d-b4dc-97b4d25003f8" equalizer-state="attached"></video><div class="video-title">Deck</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/8ac015orral0pm4c/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/28225d2e-a30e-4dcc-905d-058d6942ed9e" equalizer-state="attached"></video><div class="video-title">Yard</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/b51399w8tr5qa0v1/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/aabaadce-7f72-485b-94c1-8687e6d8ddf2" equalizer-state="attached"></video><div class="video-title">Yard PTZ</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/580elsslerqmt28u/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/8e259ebf-f7df-47c0-bcf9-59a0147d26d4" equalizer-state="attached"></video><div class="video-title">Catwalk</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/84485q0ve58ckwm2/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/bc9b86d4-5aac-4d31-8432-8adfed148f7c" equalizer-state="attached"></video><div class="video-title">Mail Room</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/8c8btla37r6nux8f/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/187ed0a6-4cf6-4f81-b545-2f724838c3ce" equalizer-state="attached"></video><div class="video-title">Kitchen</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/d578z2acldqyww5x/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/56c37caf-0b95-4aab-bdfc-e97fe2d6837d" equalizer-state="attached"></video><div class="video-title">Island</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/afacw5eipuyfsfny/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/785ebbc3-dff8-4a3d-9eb7-18af619871a2" equalizer-state="attached"></video><div class="video-title">Dining Room</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/3760543f053u6c5m/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/a0402ab0-e079-42a7-9fc1-38e30fc8dec2" equalizer-state="attached"></video><div class="video-title">Hallway</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/b65269ekvyvfkous/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/e26d3713-0c24-4338-96fa-5428041544ab" equalizer-state="attached"></video><div class="video-title">Bedroom 1</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/36708jd80gr91018/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/39f16512-1f9e-4d71-97ac-bdad69807a48" equalizer-state="attached"></video><div class="video-title">Bedroom 2</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/44daqjc6r1dfxd2e/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/8a01ba65-7bd7-4275-9e27-b9be97f37775" equalizer-state="attached"></video><div class="video-title">Bedroom 3</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/68f8q4hl8cys37n2/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/e55c3f73-3f2e-4b2e-9166-ec1f50aa6bd6" equalizer-state="attached"></video><div class="video-title">Vanity</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/0c0bun9tebd65k3j/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/7fcc4dce-c578-4f0f-845f-006351b2a2e0" equalizer-state="attached"></video><div class="video-title">Penthouse</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/9d5ckl8snb01ba6i/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/6a89a20a-4ad9-4a0f-ad3d-bd0856563413" equalizer-state="attached"></video><div class="video-title">Loft</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/122bkgvyrj1f7pk4/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/5d38ec89-8f20-43cb-9f13-bbe9f8ae40db" equalizer-state="attached"></video><div class="video-title">Jacuzzi</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/f77b5hz939s8z89b/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/644b3ade-6ec4-4e0f-8d09-6014d88f456e" equalizer-state="attached"></video><div class="video-title">Bar</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/4fb8to1674q6ht0m/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/7b5fcb1f-1dad-4ccb-bf35-0a693e5d6319" equalizer-state="attached"></video><div class="video-title">Flat</div></div>
+  <div class="video-item" data-src="https://ft.3045x.com/21aflvcz5puavd2e/index.m3u8"><video muted="" src="blob:https://ft.killcha.in/5310f2b5-d05b-45cc-b3dc-c47968bd5fa0" equalizer-state="attached"></video><div class="video-title">Confessional</div></div>
 </div>
 <div id="notification" class="notification hidden">
   <span>pause all to lower network usage</span>
@@ -258,6 +258,7 @@ setTimeout(hideNotification, 10000);
 
 closeNotificationButton.addEventListener('click', hideNotification);
 </script>
+
 
 
 </body></html>
