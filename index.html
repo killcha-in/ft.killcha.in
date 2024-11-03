@@ -124,7 +124,7 @@ videoItems.forEach((item, index) => {
 
   hls.loadSource(videoSrc);
   hls.attachMedia(cardVideo);
-  cardVideo.muted = true; // Ensure each video is muted to play automatically
+  cardVideo.muted = true; 
   hls.on(Hls.Events.MANIFEST_PARSED, () => {
     cardVideo.play();
   });
@@ -133,11 +133,10 @@ videoItems.forEach((item, index) => {
     loadVideo(videoSrc);
     videoItems.forEach((el) => el.classList.remove('selected'));
     item.classList.add('selected');
-    currentVideoIndex = index; // Update the current index
+    currentVideoIndex = index; 
   });
 });
 
-// Play all videos
 document.getElementById('play-all').addEventListener('click', () => {
   videoItems.forEach((item) => {
     const videoSrc = item.getAttribute('data-src');
@@ -145,7 +144,6 @@ document.getElementById('play-all').addEventListener('click', () => {
   });
 });
 
-// Pause all videos
 document.getElementById('pause-all').addEventListener('click', () => {
   videoItems.forEach((item) => {
     const cardVideo = item.querySelector('video');
@@ -153,17 +151,16 @@ document.getElementById('pause-all').addEventListener('click', () => {
   });
 });
 
-// Handle arrow key navigation
 document.addEventListener('keydown', (event) => {
   if (event.key === 'ArrowRight') {
-    currentVideoIndex = (currentVideoIndex + 1) % videoItems.length; // Move to the next video
+    currentVideoIndex = (currentVideoIndex + 1) % videoItems.length; 
     const nextItem = videoItems[currentVideoIndex];
     const nextVideoSrc = nextItem.getAttribute('data-src');
     loadVideo(nextVideoSrc);
     videoItems.forEach((el) => el.classList.remove('selected'));
     nextItem.classList.add('selected');
   } else if (event.key === 'ArrowLeft') {
-    currentVideoIndex = (currentVideoIndex - 1 + videoItems.length) % videoItems.length; // Move to the previous video
+    currentVideoIndex = (currentVideoIndex - 1 + videoItems.length) % videoItems.length; 
     const prevItem = videoItems[currentVideoIndex];
     const prevVideoSrc = prevItem.getAttribute('data-src');
     loadVideo(prevVideoSrc);
@@ -172,24 +169,19 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-// Show notification for 10 seconds
 const notification = document.getElementById('notification');
 const closeNotificationButton = document.getElementById('close-notification');
 
-// Function to hide the notification
 const hideNotification = () => {
   notification.classList.add('hidden');
 };
 
-// Show the notification
 setTimeout(() => {
   notification.classList.remove('hidden');
-}, 500); // Delay showing for 0.5 seconds for smoother appearance
+}, 500); 
 
-// Auto-hide after 10 seconds
 setTimeout(hideNotification, 10000);
 
-// Close notification button functionality
 closeNotificationButton.addEventListener('click', hideNotification);
 </script>
 </body>
