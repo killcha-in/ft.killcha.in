@@ -13,11 +13,11 @@
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background: #111; color: #998456; font-family: 'Courier New', monospace; display: flex; flex-direction: column; align-items: center; height: 100vh; }
-h1 { font-size: 2.5em; margin-bottom: 20px; padding: 20px; } /* Added padding to header */
+h1 { font-size: 2.5em; margin-bottom: 20px; padding: 20px; }
 h1 a { color: inherit; text-decoration: none; }
 #container { display: flex; width: 90%; max-width: 1200px; margin-bottom: 20px; }
 #main-video { width: 70%; max-width: 800px; height: auto; border-radius: 8px; }
-#iframe-container { width: 30%; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-left: 20px; } /* Light grey background with left margin */
+#iframe-container { width: 30%; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-left: 20px; }
 #iframe-chat { width: 100%; height: 100%; border: none; }
 #control-buttons { margin: 20px; }
 button { padding: 10px; border: none; background: #998456; color: #fff; border-radius: 5px; cursor: pointer; transition: background .2s; }
@@ -28,6 +28,29 @@ button:hover { background: #a89b6b; }
 .video-item.selected { outline: 2px solid #998456; }
 .video-title { position: absolute; bottom: 10px; left: 10px; background: rgba(0, 0, 0, .6); color: #fff; padding: 5px 10px; border-radius: 8px; font-size: .9em; }
 video { width: 100%; height: 100%; object-fit: cover; }
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+}
+.notification button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.2em;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.notification.hidden {
+  display: none;
+}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </head>
@@ -68,6 +91,10 @@ video { width: 100%; height: 100%; object-fit: cover; }
   <div class="video-item" data-src="https://ft.3045x.com/f77b5hz939s8z89b/index.m3u8"><video muted></video><div class="video-title">Bar</div></div>
   <div class="video-item" data-src="https://ft.3045x.com/4fb8to1674q6ht0m/index.m3u8"><video muted></video><div class="video-title">Flat</div></div>
   <div class="video-item" data-src="https://ft.3045x.com/21aflvcz5puavd2e/index.m3u8"><video muted></video><div class="video-title">Confessional</div></div>
+</div>
+<div id="notification" class="notification hidden">
+  <span>pause all to lower network usage</span>
+  <button id="close-notification">&times;</button>
 </div>
 <script>
 const mainVideo = document.getElementById('main-video');
@@ -144,6 +171,26 @@ document.addEventListener('keydown', (event) => {
     prevItem.classList.add('selected');
   }
 });
+
+// Show notification for 10 seconds
+const notification = document.getElementById('notification');
+const closeNotificationButton = document.getElementById('close-notification');
+
+// Function to hide the notification
+const hideNotification = () => {
+  notification.classList.add('hidden');
+};
+
+// Show the notification
+setTimeout(() => {
+  notification.classList.remove('hidden');
+}, 500); // Delay showing for 0.5 seconds for smoother appearance
+
+// Auto-hide after 10 seconds
+setTimeout(hideNotification, 10000);
+
+// Close notification button functionality
+closeNotificationButton.addEventListener('click', hideNotification);
 </script>
 </body>
 </html>
