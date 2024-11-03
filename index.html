@@ -208,37 +208,58 @@ videoItems.forEach((item, index) => {
   });
 });
 
-document.getElementById('play-all').addEventListener('click', () => {
-  videoItems.forEach((item) => {
-    const videoSrc = item.getAttribute('data-src');
-    loadVideo(videoSrc);
-  });
+let allPaused = true; // Track the state of all videos
+let currentTimes = []; // Store current playback times
+
+const pauseAllButton = document.getElementById('pause-all');
+
+pauseAllButton.addEventListener('click', () => {
+    videoItems.forEach((item, index) => {
+        const cardVideo = item.querySelector('video');
+        if (allPaused) {
+            // Save the current time before pausing
+            currentTimes[index] = cardVideo.currentTime;
+            cardVideo.pause(); // Pause the video
+        } else {
+            // Ensure all videos are synced to the primary video's current time
+            const primaryVideoTime = currentTimes[0] || cardVideo.currentTime; // Use primary video time or current time if not set
+            cardVideo.currentTime = primaryVideoTime; // Set current time to primary
+            cardVideo.play(); // Play the video
+        }
+    });
+    
+    // Update currentTimes to reflect the state after playing
+    if (!allPaused) {
+        currentTimes = Array.from(videoItems).map((item) => item.querySelector('video').currentTime);
+    }
+
+    allPaused = !allPaused; // Toggle the state
+
+    // Update button label
+    pauseAllButton.textContent = allPaused ? 'Resume All' : 'Pause All';
 });
 
-document.getElementById('pause-all').addEventListener('click', () => {
-  videoItems.forEach((item) => {
-    const cardVideo = item.querySelector('video');
-    cardVideo.pause();
-  });
-});
+
+
 
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'ArrowRight') {
-    currentVideoIndex = (currentVideoIndex + 1) % videoItems.length; 
-    const nextItem = videoItems[currentVideoIndex];
-    const nextVideoSrc = nextItem.getAttribute('data-src');
-    loadVideo(nextVideoSrc);
-    videoItems.forEach((el) => el.classList.remove('selected'));
-    nextItem.classList.add('selected');
-  } else if (event.key === 'ArrowLeft') {
-    currentVideoIndex = (currentVideoIndex - 1 + videoItems.length) % videoItems.length; 
-    const prevItem = videoItems[currentVideoIndex];
-    const prevVideoSrc = prevItem.getAttribute('data-src');
-    loadVideo(prevVideoSrc);
-    videoItems.forEach((el) => el.classList.remove('selected'));
-    prevItem.classList.add('selected');
-  }
+    if (event.key === 'ArrowRight') {
+        currentVideoIndex = (currentVideoIndex + 1) % videoItems.length; 
+        const nextItem = videoItems[currentVideoIndex];
+        const nextVideoSrc = nextItem.getAttribute('data-src');
+        loadVideo(nextVideoSrc);
+        videoItems.forEach((el) => el.classList.remove('selected'));
+        nextItem.classList.add('selected');
+    } else if (event.key === 'ArrowLeft') {
+        currentVideoIndex = (currentVideoIndex - 1 + videoItems.length) % videoItems.length; 
+        const prevItem = videoItems[currentVideoIndex];
+        const prevVideoSrc = prevItem.getAttribute('data-src');
+        loadVideo(prevVideoSrc);
+        videoItems.forEach((el) => el.classList.remove('selected'));
+        prevItem.classList.add('selected');
+    }
 });
+
 
 const notification = document.getElementById('notification');
 const closeNotificationButton = document.getElementById('close-notification');
