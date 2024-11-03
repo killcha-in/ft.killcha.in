@@ -18,7 +18,7 @@ h1 a { color: inherit; text-decoration: none; }
 #container { display: flex; width: 90%; max-width: 1200px; margin-bottom: 20px; }
 #main-video { width: 70%; max-width: 800px; height: auto; border-radius: 8px; }
 #iframe-container { width: 30%; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-left: 20px; }
-#iframe-chat { width: 100%; height: 100%; border: none; }
+#chattable { width: 100%; height: 100%; border: none; }
 #control-buttons { margin: 20px; }
 button { padding: 10px; border: none; background: #998456; color: #fff; border-radius: 5px; cursor: pointer; transition: background .2s; }
 button:hover { background: #a89b6b; }
@@ -54,12 +54,23 @@ video { width: 100%; height: 100%; object-fit: cover; }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </head>
+<head>
+  ...
+  <script src="https://chattable.neocities.org/scripts/main.min.js"></script>
+  <script>
+    chattable.initialize({
+      theme: "Windows XP"
+    });
+  </script>
+  ...
+</head>
+
 <body>
 <h1>ft.<a href="https://killcha.in">killcha.in</a></h1>
 <div id="container">
   <video id="main-video" controls></video>
   <div id="iframe-container">
-    <iframe src='https://iframe.chat/embed/index.html?chat=47785667' id='iframe-chat'></iframe>
+    <iframe src='https://iframe.chat/embed/index.html?chat=47785667' id='chattable'></iframe>
   </div>
 </div>
 <div id="control-buttons">
